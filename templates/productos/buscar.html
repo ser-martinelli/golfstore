@@ -1,0 +1,35 @@
+
+{% extends "base.html" %}
+
+{% block contenido %}
+
+<h2>Buscar Producto</h2>
+
+<form method="GET" class="mb-4">
+
+<input type="text"
+name="nombre"
+placeholder="Buscar producto..."
+class="form-control">
+
+</form>
+
+{% if productos %}
+
+<ul class="list-group">
+
+{% for producto in productos %}
+
+<li class="list-group-item">
+
+{{ producto.nombre }} - ${{ producto.precio }}
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+{% endif %}
+
+{% endblock %}
