@@ -1,5 +1,6 @@
 
 from django.shortcuts import render, redirect
+from .models import Categoria
 from .models import Producto
 from .forms import ProductoFormulario, BuscarProducto
 
@@ -61,3 +62,17 @@ def register(request):
 def logout_request(request):
     logout(request)
     return redirect("inicio")
+
+def detalle_producto(request, id):
+    producto = Producto.objects.get(id=id)
+    return render(request,
+    "productos/detalle.html",
+    {"producto": producto})
+
+def categorias(request):
+
+    categorias = Categoria.objects.all()
+
+    return render(request,
+    "categorias/lista.html",
+    {"categorias": categorias})

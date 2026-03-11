@@ -1,3 +1,4 @@
+
 from django.db import models
 
 class Categoria(models.Model):
@@ -23,9 +24,8 @@ class Producto(models.Model):
     marca = models.CharField(max_length=100)
     precio = models.FloatField()
     descripcion = models.TextField()
+    imagen = models.ImageField(upload_to="productos", null=True, blank=True)
     subcategoria = models.ForeignKey(Subcategoria, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nombre
-
-

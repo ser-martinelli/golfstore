@@ -35,6 +35,12 @@ Editar
 Eliminar
 </a>
 
+{% if producto.imagen %}
+<img src="{{ producto.imagen.url }}" class="card-img-top">
+{% endif %}
+
+<a href="/producto/{{producto.id}}/"></a>
+
 </div>
 
 </div>
